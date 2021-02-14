@@ -129,7 +129,13 @@ searchBtn.addEventListener('click', function () {
 })
 
 sliderBtn.addEventListener('click', function () {
-  createSlider()
+  const duration = document.getElementById('duration').value || 1000;
+  if (duration >= 1000) {
+    createSlider();
+  } else {
+    alert('Hey, Minimum value is 1 second so type 1000 or more')
+  }
+ 
 })
 
 

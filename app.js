@@ -113,14 +113,29 @@ const changeSlide = (index) => {
   items[index].style.display = "block"
 }
 
+// 5 search button item if else added and alert added
 searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
-  getImages(search.value)
-  sliders.length = 0;
+  
+  if (search.value === '' ) {
+    alert('Hey, Nothing added! write something')
+  }else{
+    getImages(search.value)
+    sliders.length = 0;
+  }
+
 })
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+
+// 6 search Enter button activate with form id and button id
+document.querySelector("#search").addEventListener("keypress", event => {
+  if (event.key !== "Enter") return;
+  document.querySelector("#search-btn").click();
+});
+

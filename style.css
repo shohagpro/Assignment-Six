@@ -55,6 +55,19 @@ img {
   display: none;
 }
 
+#downloadImage{
+  text-align: center;
+}
+#downloadImage button{
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 25px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
 @media (max-width: 767px) {
   .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
     flex-direction: column;

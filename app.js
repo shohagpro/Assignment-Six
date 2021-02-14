@@ -19,7 +19,9 @@ const showImages = (images) => {
   images.forEach(image => {
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+    div.innerHTML = ` 
+    <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
+    <div id="downloadImage"><a href="${image.webformatURL}"> <button>Download</button> </a></div>`;
     gallery.appendChild(div)
   })
 
@@ -128,6 +130,7 @@ searchBtn.addEventListener('click', function () {
 
 })
 
+// 7 slider if else added for time and alert added
 sliderBtn.addEventListener('click', function () {
   const duration = document.getElementById('duration').value || 1000;
   if (duration >= 1000) {

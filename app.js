@@ -7,17 +7,14 @@ const sliderContainer = document.getElementById('sliders');
 // selected image 
 let sliders = [];
 
-
-// If this key doesn't work
-// Find the name in the url and go to their website
-// to create your own api key
+// 1 Api Key added
 const KEY = '20267959-cc60bb95244bc43314eab2950&q';
 
 // show images 
 const showImages = (images) => {
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
-  // show gallery title
+// show gallery title
   galleryHeader.style.display = 'flex';
   images.forEach(image => {
     let div = document.createElement('div');
@@ -28,6 +25,7 @@ const showImages = (images) => {
 
 }
 
+// 2 to solve error hitS changed to hits 
 const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
@@ -38,13 +36,19 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
+
+// 3 if else added to element.classList.add('added');
+if (!event.target.classList.contains('added')) {
   element.classList.add('added');
- 
+} else {
+  element.classList.remove('added');
+} 
+// 4. alert removed and pop added
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert('Hey, Already added !')
+    sliders.pop(img);
   }
 }
 var timer
